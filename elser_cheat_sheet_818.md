@@ -8,22 +8,23 @@
 
 The following text is safe to cut and paste into Dev Tools, and modify to your liking by changing the highlighted text.   
 
-11/9 \- Updated for ELSER V2
+11/9 \- Updated for ELSER V2,   
+7/25 \- updated semantic\_text and 8.18/9.0
 
-**\# \==================================================================**  
-**\# Elastic Learned Sparse EncodeR testing**  
-**\# \==================================================================**  
+\# \==================================================================  
+\# Elastic Learned Sparse EncodeR testing  
+\# \==================================================================  
 \# Step by step instructions…  
 \#   
-**\# Step 1: First you ingest the text file,** you’ll want a main field   
+\# Step 1: First you ingest the text file, you’ll want a main field   
 \# that has your text as \<indexname\>  
-\# Ingesting data to Elastic see:   
-**\# Step 2: Turn on the .elser\_model\_2\_linux-x86\_64 in the kibana UI,** this is two   
-\# steps \[download model, then start\]  see Download and Start here : [https://www.elastic.co/guide/en/machine-learning/current/ml-nlp-elser.html](https://www.elastic.co/guide/en/machine-learning/current/ml-nlp-elser.html)  
-**\# Step 3: Create a new index which will contain the tokens by first**   
-**\# putting a "semantic\_text" field in the mapping, this does lots of**   
-**\# things for you including chunking, which I am not testing here**  
-\# you need to make sure the ml.tokens fields are "rank\_features"  
+\# Step 2: The latest Elastic 8.18/9.0 has .elser-2 inference endpoint   
+\# enabled by default.  You don’t need any special steps with   
+\# semantic\_text field either  
+\# Read more about ELSER here: [https://www.elastic.co/guide/en/machine-learning/current/ml-nlp-elser.html](https://www.elastic.co/guide/en/machine-learning/current/ml-nlp-elser.html)  
+\# Step 3: Create a new index which will contain the tokens by first   
+\# putting a "semantic\_text" field in the mapping, this does lots of   
+\# things for you including chunking, which I am not testing here  
 \# see: https://www.elastic.co/docs/solutions/search/semantic-search/semantic-search-semantic-text  
 PUT \<indexname-semantic-enriched\>  
 {  
@@ -36,7 +37,7 @@ PUT \<indexname-semantic-enriched\>
   }  
 }
 
-**\# Step 4: you will need to reindex the raw index ingested** \<indexname\>   
+\# Step 4: you will need to reindex the raw index ingested \<indexname\>   
 \# using the pipeline adding the tokenized fields to the newly   
 \# created index \<indexname-enriched\>  
 \# Add a ?wait\_for\_completion=false to the request to run the job   
