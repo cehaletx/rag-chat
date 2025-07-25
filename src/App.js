@@ -54,7 +54,7 @@ function RAGChatApp() {
         config.azureOpenAIEndpoint,
         {
           messages: [
-            { role: 'system', content: 'You are a helpful assistant that answers questions based on provided context. Tell me what part of the answer is from the context and if you know additional information from sources beyond the context, if there is more, where did it come from.' },
+            { role: 'system', content: 'You are a helpful assistant that answers questions based on provided context. Tell me what part of the answer is from the context and if you know additional information from sources beyond the context, if there is more, where did it come from.  Could you also format the response with the concise Answer, and the word answer in bold, and then a From the context section, bold heading, and if there's additional info, in another section with a bold header.' },
             { role: 'user', content: `Context:\n${contextStr}\n\nQuestion: ${query.trim()}` }
           ],
           temperature: 0.7,
